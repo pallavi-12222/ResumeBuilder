@@ -1,0 +1,99 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Input Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #343a40;
+}
+
+p {
+    color: #495057;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Resume Input Form</h1>
+        <form action="ResumeServlet" method="post" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+                <div class="invalid-feedback">Please enter your phone number.</div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" class="form-control" id="address" name="address" required>
+                <div class="invalid-feedback">Please enter your address.</div>
+            </div>
+            <div class="form-group">
+                <label for="summary">Summary:</label>
+                <textarea class="form-control" id="summary" name="summary" rows="4" required></textarea>
+                <div class="invalid-feedback">Please enter a summary.</div>
+            </div>
+            <div class="form-group">
+                <label for="education">Education:</label>
+                <textarea class="form-control" id="education" name="education" rows="4" required></textarea>
+                <div class="invalid-feedback">Please enter your education details.</div>
+            </div>
+            <div class="form-group">
+                <label for="experience">Experience:</label>
+                <textarea class="form-control" id="experience" name="experience" rows="4" required></textarea>
+                <div class="invalid-feedback">Please enter your work experience.</div>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills:</label>
+                <textarea class="form-control" id="skills" name="skills" rows="4" required></textarea>
+                <div class="invalid-feedback">Please enter your skills.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate Resume</button>
+        </form>
+    </div>
+    <script>
+        // JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+</html>

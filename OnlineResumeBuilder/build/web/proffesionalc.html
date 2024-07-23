@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Templates with Filter</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .card {
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-img-top {
+            height: 300px;
+            object-fit: cover;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #imageContainer {
+            text-align: center;
+        }
+        #imageContainer img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Cards Section (3 per row) -->
+        <div class="col-md-9" id="cardContainer">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="red" data-photo="true" onclick="displayTemplate('023.jpg')">
+                    <div class="card">
+                        <img src="023.jpg" class="card-img-top" alt="Template 1">
+                        <div class="card-body">
+                            <a href="#" class="btn btn-primary mt-2">View Template</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="blue" data-photo="true" onclick="displayTemplate('024.jpg')">
+                    <div class="card">
+                        <img src="024.jpg" class="card-img-top" alt="Template 2">
+                        <div class="card-body">
+                            <a href="#" class="btn btn-primary mt-2">View Template</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="green" data-photo="true" onclick="displayTemplate('025.jpg')">
+                    <div class="card">
+                        <img src="025.jpg" class="card-img-top" alt="Template 3">
+                        <div class="card-body">
+                            <a href="#" class="btn btn-primary mt-2">View Template</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="yellow" data-photo="true" onclick="displayTemplate('026.jpg')">
+                    <div class="card">
+                        <img src="026.jpg" class="card-img-top" alt="Template 4">
+                        <div class="card-body">
+                            <a href="#" class="btn btn-primary mt-2">View Template</a>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+
+        <!-- Display Container -->
+        <div class="col-md-3" id="imageContainer" style="display: none;">
+            <img id="selectedImage" src="" alt="Selected Template">
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    function displayTemplate(imageUrl) {
+        // Display the container if hidden
+        document.getElementById('imageContainer').style.display = 'block';
+
+        // Set the image
+        document.getElementById('selectedImage').src = imageUrl;
+    }
+</script>
+
+</body>
+</html>

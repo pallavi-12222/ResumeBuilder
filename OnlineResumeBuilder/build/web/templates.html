@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Templates with Filter</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .filter-section {
+            border-right: 1px solid #ddd;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .filter-section h4 {
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: 600;
+            color: #495057;
+        }
+        .form-check-label {
+            font-weight: 500;
+            color: #495057;
+        }
+        .form-control {
+            border-radius: 0.25rem;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .card {
+            margin: 15px;
+            height: 400px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-img-top {
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Filter Section (1/4 of the screen) -->
+        <div class="col-lg-3 filter-section">
+            <h4>Filter Options</h4>
+            <!-- Filter options for color and photo presence -->
+            <form>
+                <div class="form-group">
+                    <label for="color">Color</label>
+                    <select id="color" class="form-control">
+                        <option value="all">All</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="orange">Orange</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Photo Presence</label><br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="withPhoto" checked>
+                        <label class="form-check-label" for="withPhoto">
+                            With Photo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="withoutPhoto" checked>
+                        <label class="form-check-label" for="withoutPhoto">
+                            Without Photo
+                        </label>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="applyFilters()">Apply Filters</button>
+            </form>
+        </div>
+
+        <!-- Cards Section (3/4 of the screen) -->
+        <div class="col-lg-9">
+            <div class="row" id="cardContainer">
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="orange" data-photo="false" onclick="redirectToTemplate(1)">
+                    <div class="card">
+                        <img src="orangenot1.jpg" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="blue" data-photo="true" onclick="redirectToTemplate(2)">
+                    <div class="card">
+                        <img src="byes1.jpg" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="green" data-photo="true" onclick="redirectToTemplate(3)">
+                    <div class="card">
+                        <img src="greenyes1.jpg" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="yellow" data-photo="true" onclick="redirectToTemplate(4)">
+                    <div class="card">
+                        <img src="yellowyes1.jpg" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="red" data-photo="false" onclick="redirectToTemplate(5)">
+                    <div class="card">
+                        <img src="rednot1.jpg" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="red" data-photo="false" onclick="redirectToTemplate(6)">
+                    <div class="card">
+                        <img src="rednot2.jpg" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="red" data-photo="true" onclick="redirectToTemplate(7)">
+                    <div class="card">
+                        <img src="redyes1.png" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+                     <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="red" data-photo="false" onclick="redirectToTemplate(8)">
+                    <div class="card">
+                        <img src="template.jpg" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+                     <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="blue" data-photo="true" onclick="redirectToTemplate(9)">
+                    <div class="card">
+                        <img src="te5.jpg" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+                     <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="blue" data-photo="true" onclick="redirectToTemplate(10)">
+                    <div class="card">
+                        <img src="te3.jpg" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+                     <div class="col-lg-4 col-md-6 mb-4 card-item" data-color="blue" data-photo="true" onclick="redirectToTemplate(11)">
+                    <div class="card">
+                        <img src="te4.jpg" class="card-img-top" alt="Card image cap">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    function applyFilters() {
+        const selectedColor = document.getElementById('color').value;
+        const withPhoto = document.getElementById('withPhoto').checked;
+        const withoutPhoto = document.getElementById('withoutPhoto').checked;
+
+        const cards = document.querySelectorAll('.card-item');
+
+        cards.forEach(card => {
+            const cardColor = card.getAttribute('data-color');
+            const cardPhoto = card.getAttribute('data-photo') === 'true';
+
+            let showCard = true;
+
+            if (selectedColor !== 'all' && cardColor !== selectedColor) {
+                showCard = false;
+            }
+
+            if (!withPhoto && cardPhoto) {
+                showCard = false;
+            }
+
+            if (!withoutPhoto && !cardPhoto) {
+                showCard = false;
+            }
+
+            card.style.display = showCard ? '' : 'none';
+        });
+    }
+
+    function redirectToTemplate(templateId) {
+        window.location.href = 'details.html?template=' + templateId;
+    }
+   
+</script>
+
+</body>
+</html>
